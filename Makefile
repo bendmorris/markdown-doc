@@ -7,8 +7,8 @@ images =
 
 all: $(document_name).pdf
 
-show: application.pdf
-	$(viewer) $< &
+show: $(document_name).pdf
+	$(viewer) $< 2>&1>/dev/null &
 
 $(document_name).pdf: $(document_name).md $(document_name).latex refs.bib $(images)
 	pandoc -o $@ -V geometry:margin=2.5cm --variable fontsize=12pt \
