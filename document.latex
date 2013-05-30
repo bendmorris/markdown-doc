@@ -4,6 +4,22 @@
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
+
+% line spacing
+%\usepackage{setspace}
+%\setstretch{0.95}
+
+% left justify only
+%\raggedright
+
+% no page numbers
+%\pagenumbering{gobble}
+
+% section titles on same line
+%\usepackage{titlesec}
+%\titleformat*{\section}{\large\bfseries}
+%\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection.}{}{}
+
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
