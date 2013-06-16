@@ -1,7 +1,7 @@
 To make a new document:
 
 * Clone this repository and make a new branch 
-* If you want, change document.\* to something_else.\* and change the 
+* If you want, change document.md to something_else.md and change the 
     document_name variable in the Makefile
 * edit document.latex to change formatting
 * replace refs.bib with your BibTeX file
