@@ -1,5 +1,6 @@
 viewer=evince
-document_name=document
+documents=$(wildcard *.md)
+pdfs=$(patsubst %.md, %.pdf, $(documents))
 font=Georgia
 fontsize=12pt
 margin=2cm
@@ -11,15 +12,15 @@ images =
 
 .PHONY: all show clean
 
-all: $(document_name).pdf
+all: $(pdfs)
 
-show: $(document_name).pdf
+show: $(pdfs)
 	$(viewer) $< 2>&1>/dev/null &
 
 clean:
-	rm -f $(document_name).pdf $(images)
+	rm -f *.pdf $(images)
 
-$(document_name).pdf: $(document_name).md template.latex refs.bib $(images)
+$(pdfs): %.pdf: %.md template.latex refs.bib $(images)
 	pandoc -o $@ -V geometry:margin=$(margin) \
 	--variable fontsize=$(fontsize) \
 	--variable mainfont="$(font)" --latex-engine=xelatex \
