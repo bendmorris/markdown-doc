@@ -1,4 +1,4 @@
-viewer=evince
+viewer=xdg-open
 documents=$(wildcard *.md)
 pdfs=$(patsubst %.md, %.pdf, $(documents))
 font=Georgia
@@ -12,7 +12,9 @@ images =
 
 .PHONY: all show clean
 
-all: $(pdfs)
+all: pdf
+
+pdf: $(pdfs)
 
 show: $(pdfs)
 	$(viewer) $< 2>&1>/dev/null &
@@ -20,7 +22,7 @@ show: $(pdfs)
 clean:
 	rm -f *.pdf $(images)
 
-$(pdfs): %.pdf: %.md template.latex refs.bib $(images)
+%.pdf: %.md template.latex refs.bib $(images)
 	pandoc -o $@ -V geometry:margin=$(margin) \
 	--variable fontsize=$(fontsize) \
 	--variable mainfont="$(font)" --latex-engine=xelatex \
