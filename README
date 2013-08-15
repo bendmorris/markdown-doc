@@ -5,3 +5,10 @@ To make a new document:
 * replace refs.bib with your BibTeX file
 * run `make` to build a PDF, `make show` to build the PDF and display it
     using a PDF viewer (default is xdg-open, set using the "viewer" variable)
+
+Citations/references are styled using CSL files, and which style is used is set 
+by the csl variable in the Makefile (e.g. `csl=plos`). Pandoc looks for .csl 
+files in the working directory as well as ~/.csl. To get all of the .csl files:
+
+    git clone https://github.com/citation-style-language/styles.git ~/.csl
+    
