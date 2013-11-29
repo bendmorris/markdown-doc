@@ -26,5 +26,5 @@ clean:
 	pandoc -o $@ -V geometry:margin=$(margin) \
 	--variable fontsize=$(fontsize) \
 	--variable mainfont="$(font)" --latex-engine=xelatex \
-	--bibliography refs.bib --csl csl/$(csl).csl \
+	--bibliography refs.bib --csl $(csl).csl \
 	--template template.latex $<
